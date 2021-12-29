@@ -3,8 +3,8 @@
   <entry>
     <title>使用Hexo架設blog</title>
     <url>/2021/12/24/hexo-tutorial/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>曾經主管和我推薦過Hexo，Hexo是一款很強大的網誌框架。<br>雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題，所以今天就來動手架設自己的Blog。</p>
-<span id="more"></span>
+    <content><![CDATA[<span id="more"></span>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>曾經主管和我推薦過Hexo，Hexo是一款很強大的網誌框架。<br>雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題，所以今天就來動手架設自己的Blog。</p>
 <p>這篇文章參考了很多網站上的文章，如果有錯誤的地方還請各位不吝指教。</p>
 <h2 id="什麼是Hexo"><a href="#什麼是Hexo" class="headerlink" title="什麼是Hexo"></a>什麼是Hexo</h2><p><a href="https://hexo.io/">Hexo</a> 是強大且快速就能架設的網誌Blog框架。<br>它使用Node.js並可以將MarkDown轉譯成HTML文件再透過各種漂亮的主題快速產生靜態檔案。</p>
 <p>下面就來介紹如何使用它吧！</p>
@@ -28,7 +28,7 @@
 
 <h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>大概熟悉目錄結構以後，我們來介紹如何變更主題，推薦網路很熱門的NexT主題</p>
 <p><a href="https://github.com/iissnan/hexo-theme-next">NexT</a><br>從上方網站中git安裝或網站下載解壓縮後，把文件放到目錄結構的themes主題，<br>接著修改網站設定_config.yml，把theme 主題名稱改成你的主題資料夾名稱<br>重新啟動server <code>hexo s</code> 後就可以看到主題改變囉！</p>
-<p><img src="hexo-tutorial/hexo1.png" alt="img"></p>
+<p><img src="/hexo1.png" alt="img"></p>
 <h3 id="文章佈局"><a href="#文章佈局" class="headerlink" title="文章佈局"></a>文章佈局</h3><ul>
 <li><p>預設佈局 layout</p>
 <ul>
