@@ -3,12 +3,10 @@
   <entry>
     <title>使用Hexo架設blog</title>
     <url>/2021/12/24/hexo-tutorial/</url>
-    <content><![CDATA[<p>Hexo是一款很強大的網誌框架。</p>
+    <content><![CDATA[<p>最近覺得雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，<br>未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題。</p>
+<p>想到曾經主管和我推薦過Hexo，所以今天就來動手架設自己的Blog。</p>
 <span id="more"></span>
 
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近覺得雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，<br>未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題。</p>
-<p>想到曾經主管和我推薦過Hexo，所以今天就來動手架設自己的Blog。</p>
-<p>這篇文章參考了很多網站上的文章，如果有錯誤的地方還請各位不吝指教。</p>
 <h2 id="什麼是Hexo"><a href="#什麼是Hexo" class="headerlink" title="什麼是Hexo"></a>什麼是Hexo</h2><p><a href="https://hexo.io/">Hexo</a> 是強大且快速就能架設的網誌Blog框架。<br>它使用Node.js並可以將MarkDown轉譯成HTML文件再透過各種漂亮的主題快速產生靜態檔案。</p>
 <p>下面就來介紹如何使用它吧！</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝Hexo-需先安裝Node-js"><a href="#安裝Hexo-需先安裝Node-js" class="headerlink" title="安裝Hexo (需先安裝Node.js)"></a>安裝Hexo (需先安裝Node.js)</h3><p>輸入以下指令，完成後輸入 <code>hexo v</code> 可以查看是否安裝完成</p>
@@ -57,10 +55,7 @@
 </li>
 </ul>
 <h3 id="參考指令"><a href="#參考指令" class="headerlink" title="參考指令"></a>參考指令</h3><p>常用指令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># $ hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span><br><span class="line"># $ hexo publish &lt;title&gt;</span><br><span class="line">$ hexo new draft hello_world</span><br><span class="line"></span><br><span class="line">$ hexo generate                   # 產生靜態檔案</span><br><span class="line">$ hexo generate -d                # 產生靜態檔案，並部署網站</span><br><span class="line">$ hexo server                     # 啟動伺服器</span><br><span class="line">$ hexo deploy                     # 部署網站</span><br><span class="line">$ hexo deploy -g                  # 部署網站前先產生靜態檔案</span><br><span class="line">$ hexo clean                      # 清除快取檔案</span><br><span class="line">$ hexo list &lt;type&gt;                # 列出網站相關資料</span><br><span class="line">$ hexo version                    # 列出 hexo 版本</span><br></pre></td></tr></table></figure>
-
-<p>安裝及初始化專案</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli     # hexo 安裝</span><br><span class="line">$ hexo init &lt;folder&gt;        # 建立 hexo 專案資料夾</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install           # 安裝 hexo 套件</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># $ hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span><br><span class="line"># $ hexo publish &lt;title&gt;</span><br><span class="line">$ hexo new draft hello_world</span><br><span class="line"></span><br><span class="line">$ hexo generate                   # 產生靜態檔案</span><br><span class="line">$ hexo generate -d                # 產生靜態檔案，並部署網站</span><br><span class="line">$ hexo server                     # 啟動伺服器</span><br><span class="line">$ hexo deploy                     # 部署網站</span><br><span class="line">$ hexo deploy -g                  # 部署網站前先產生靜態檔案</span><br><span class="line">$ hexo clean                      # 清除快取檔案</span><br><span class="line">$ hexo list &lt;type&gt;                # 列出網站相關資料</span><br><span class="line">$ hexo version                    # 列出 hexo 版本</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Hexo</tag>
       </tags>
@@ -68,9 +63,9 @@
   <entry>
     <title>Mocha - 單元測試框架</title>
     <url>/2021/12/29/mocha/</url>
-    <content><![CDATA[<p>每個軟體開發人員都應該學習構建可預測、不易出錯且更具有彈性的軟體。</p>
-<span id="more"></span>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3>]]></content>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span>
+
+<h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3>]]></content>
       <tags>
         <tag>test-framework</tag>
         <tag>mocha</tag>
