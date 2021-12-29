@@ -30,7 +30,7 @@
 
 <h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>大概熟悉目錄結構以後，我們來介紹如何變更主題，推薦網路很熱門的NexT主題</p>
 <p><a href="https://github.com/iissnan/hexo-theme-next">NexT</a><br>從上方網站中git安裝或網站下載解壓縮後，把文件放到目錄結構的themes主題，<br>接著修改網站設定_config.yml，把theme 主題名稱改成你的主題資料夾名稱<br>重新啟動server <code>hexo s</code> 後就可以看到主題改變囉！</p>
-<p><img src="/hexo1.png" alt="img"></p>
+<p><img src="./hexo-tutorial/hexo1.png" alt="img"></p>
 <h3 id="文章佈局"><a href="#文章佈局" class="headerlink" title="文章佈局"></a>文章佈局</h3><ul>
 <li><p>預設佈局 layout</p>
 <ul>
