@@ -62,4 +62,14 @@
         <tag>Hexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Mocha - 單元測試框架</title>
+    <url>/2021/12/29/mocha/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3>]]></content>
+      <tags>
+        <tag>test-framework</tag>
+        <tag>mocha</tag>
+        <tag>unit-test</tag>
+      </tags>
+  </entry>
 </search>
