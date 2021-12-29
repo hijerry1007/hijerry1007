@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/24/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>使用Hexo架設blog</title>
     <url>/2021/12/24/hexo-tutorial/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>曾經主管和我推薦過Hexo，Hexo是一款很強大的網誌框架。<br>雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題，所以今天就來動手架設自己的Blog。</p>
@@ -46,7 +28,30 @@
 
 <h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>大概熟悉目錄結構以後，我們來介紹如何變更主題，推薦網路很熱門的NexT主題</p>
 <p><a href="https://github.com/iissnan/hexo-theme-next">NexT</a><br>從上方網站中git安裝或網站下載解壓縮後，把文件放到目錄結構的themes主題，<br>接著修改網站設定_config.yml，把theme 主題名稱改成你的主題資料夾名稱<br>重新啟動server <code>hexo s</code> 後就可以看到主題改變囉！</p>
-<p><img src="/posts/images/hexo1.png" alt="hexo1"></p>
+<p><img src="/images/hexo1.png" alt="hexo1"></p>
+<h3 id="文章佈局"><a href="#文章佈局" class="headerlink" title="文章佈局"></a>文章佈局</h3><ul>
+<li>預設佈局 layout<ul>
+<li>post : 文章</li>
+<li>page : 頁面</li>
+<li>draft : 草稿</li>
+</ul>
+</li>
+</ul>
+<p>鷹架 Scaffold : 可依照文章需要的格式去新增文章，</p>
+<ul>
+<li>新增草稿<ul>
+<li>輸入指令建立新草稿在 source / _drafts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new draft 文章名稱</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>草稿轉文章<ul>
+<li>輸入執行 layout 是要移動到的佈局、title 是要移動的檔名  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>新增文章<ul>
+<li>輸入指令後會建立在 source / _posts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new 文章名稱</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
 <h3 id="Hexo-指令"><a href="#Hexo-指令" class="headerlink" title="Hexo 指令"></a>Hexo 指令</h3><p>常用指令</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># $ hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span><br><span class="line"># $ hexo publish &lt;title&gt;</span><br><span class="line">$ hexo new draft hello_world</span><br><span class="line"></span><br><span class="line">$ hexo generate                   # 產生靜態檔案</span><br><span class="line">$ hexo generate -d                # 產生靜態檔案，並部署網站</span><br><span class="line">$ hexo server                     # 啟動伺服器</span><br><span class="line">$ hexo deploy                     # 部署網站</span><br><span class="line">$ hexo deploy -g                  # 部署網站前先產生靜態檔案</span><br><span class="line">$ hexo clean                      # 清除快取檔案</span><br><span class="line">$ hexo list &lt;type&gt;                # 列出網站相關資料</span><br><span class="line">$ hexo version                    # 列出 hexo 版本</span><br></pre></td></tr></table></figure>
 
@@ -55,5 +60,23 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/24/test/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
