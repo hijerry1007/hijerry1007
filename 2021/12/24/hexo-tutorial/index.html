@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="最近覺得雖然Google大神很好用，但還是需要自己動手紀錄一下自己做過的事情，不僅會更有印象，未來遇到相同問題的時候也能很快速地翻找自己紀錄的筆記解決問題。 想到曾經主管和我推薦過Hexo，所以今天就來動手架設自己的Blog。">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://example.com/2021/12/24/hexo-tutorial/hexo1.png">
 <meta property="article:published_time" content="2021-12-24T10:36:31.000Z">
-<meta property="article:modified_time" content="2021-12-29T08:01:12.504Z">
+<meta property="article:modified_time" content="2021-12-29T08:35:17.762Z">
 <meta property="article:author" content="Jerry Lai">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -207,13 +207,15 @@
 
               <time title="創建時間：2021-12-24 18:36:31" itemprop="dateCreated datePublished" datetime="2021-12-24T18:36:31+08:00">2021-12-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-12-29 16:01:12" itemprop="dateModified" datetime="2021-12-29T16:01:12+08:00">2021-12-29</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+            </span>
 
           
 
@@ -235,19 +237,19 @@
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝Hexo-需先安裝Node-js"><a href="#安裝Hexo-需先安裝Node-js" class="headerlink" title="安裝Hexo (需先安裝Node.js)"></a>安裝Hexo (需先安裝Node.js)</h3><p>輸入以下指令，完成後輸入 <code>hexo v</code> 可以查看是否安裝完成</p>
 </br>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h6 id="註-Mac-使用者-在編譯時可能會碰到問題，請至-App-Store安裝Xcode，安裝完成後，開啟並前往Preferences-gt-Download-gt-Command-Line-Tools-gt-Install-安裝命令列工具。"><a href="#註-Mac-使用者-在編譯時可能會碰到問題，請至-App-Store安裝Xcode，安裝完成後，開啟並前往Preferences-gt-Download-gt-Command-Line-Tools-gt-Install-安裝命令列工具。" class="headerlink" title="註: Mac 使用者 在編譯時可能會碰到問題，請至 App Store安裝Xcode，安裝完成後，開啟並前往Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安裝命令列工具。"></a>註: Mac 使用者 在編譯時可能會碰到問題，請至 App Store安裝Xcode，安裝完成後，開啟並前往Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安裝命令列工具。</h6></blockquote>
 </br>
 
 <h3 id="初始專案"><a href="#初始專案" class="headerlink" title="初始專案"></a>初始專案</h3><p>輸入指令 <code>hexo init 你的資料夾名稱</code>，即可建置存放部落格的目錄，舉例來說你可以輸入<br></br></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init myBlog</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init myBlog</span><br></pre></td></tr></table></figure>
 </br>
 
 <p>接著進入你創建的資料夾目錄底下，並輸入 <code>npm install</code> 安裝Hexo所需的套件，安裝完成後，輸入指令<code>hexo s</code>，<br>接著在瀏覽器輸入<code>http://localhost:4000</code> 有出現畫面就成功啦！</p>
 <h3 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h3><p>初始化Hexo後，資料夾的目錄結構如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml   # 最主要的設定檔</span><br><span class="line">├── package.json  #  相依套件列表</span><br><span class="line">├── scaffolds     # 用來建立新的 post</span><br><span class="line">├── public        # 處理編譯過 md 檔案會放到這裡</span><br><span class="line">├── source        # 部落格的內容，除了 _posts 外，其他以 _ 開頭的檔案都會被忽略</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes        # 網頁主題</span><br><span class="line">    └── 主題資料夾</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml   # 最主要的設定檔</span><br><span class="line">├── package.json  # 相依套件列表</span><br><span class="line">├── scaffolds     # 用來建立新的 post</span><br><span class="line">├── public        # 處理編譯過 md 檔案會放到這裡</span><br><span class="line">├── source        # 部落格的內容，除了 _posts 外，其他以 _ 開頭的檔案都會被忽略</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes        # 網頁主題</span><br><span class="line">    └── 主題資料夾</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>大概熟悉目錄結構以後，我們來介紹如何變更主題，推薦網路很熱門的NexT主題</p>
@@ -256,29 +258,33 @@
 <h3 id="文章佈局"><a href="#文章佈局" class="headerlink" title="文章佈局"></a>文章佈局</h3><ul>
 <li><p>預設佈局 layout</p>
 <ul>
-<li>post : 文章</li>
-<li>page : 頁面</li>
-<li>draft : 草稿<br>鷹架 Scaffold : 可依照文章需要的格式去新增文章，</li>
+<li><p>鷹架 Scaffold : 可依照文章需要的格式去新增文章，</p>
+</li>
+<li><p>post : 文章</p>
+</li>
+<li><p>page : 頁面</p>
+</li>
+<li><p>draft : 草稿</p>
+</li>
 </ul>
 </li>
 <li><p>新增草稿</p>
 <ul>
-<li>輸入指令建立新草稿在 source / _drafts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft 文章名稱</span><br></pre></td></tr></table></figure></li>
+<li>輸入指令建立新草稿在 source / _drafts / 資料夾內  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new draft 文章名稱</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>草稿轉文章</p>
 <ul>
-<li>輸入執行 layout 是要移動到的佈局、title 是要移動的檔名  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
+<li>輸入執行 layout 是要移動到的佈局、title 是要移動的檔名  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>新增文章</p>
 <ul>
-<li>輸入指令後會建立在 source / _posts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new 文章名稱</span><br></pre></td></tr></table></figure></li>
+<li>輸入指令後會建立在 source / _posts / 資料夾內  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new 文章名稱</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-<h3 id="參考指令"><a href="#參考指令" class="headerlink" title="參考指令"></a>參考指令</h3><p>常用指令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># $ hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span><br><span class="line"># $ hexo publish &lt;title&gt;</span><br><span class="line">$ hexo new draft hello_world</span><br><span class="line"></span><br><span class="line">$ hexo generate                   # 產生靜態檔案</span><br><span class="line">$ hexo generate -d                # 產生靜態檔案，並部署網站</span><br><span class="line">$ hexo server                     # 啟動伺服器</span><br><span class="line">$ hexo deploy                     # 部署網站</span><br><span class="line">$ hexo deploy -g                  # 部署網站前先產生靜態檔案</span><br><span class="line">$ hexo clean                      # 清除快取檔案</span><br><span class="line">$ hexo list &lt;type&gt;                # 列出網站相關資料</span><br><span class="line">$ hexo version                    # 列出 hexo 版本</span><br></pre></td></tr></table></figure>
+<h3 id="參考指令"><a href="#參考指令" class="headerlink" title="參考指令"></a>參考指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#  hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span></span><br><span class="line"><span class="comment">#  hexo publish &lt;title&gt;</span></span><br><span class="line"> hexo new draft hello_world</span><br><span class="line"></span><br><span class="line"> hexo generate                   <span class="comment"># 產生靜態檔案</span></span><br><span class="line"> hexo generate -d                <span class="comment"># 產生靜態檔案，並部署網站</span></span><br><span class="line"> hexo server                     <span class="comment"># 啟動伺服器</span></span><br><span class="line"> hexo deploy                     <span class="comment"># 部署網站</span></span><br><span class="line"> hexo deploy -g                  <span class="comment"># 部署網站前先產生靜態檔案</span></span><br><span class="line"> hexo clean                      <span class="comment"># 清除快取檔案</span></span><br><span class="line"> hexo list &lt;<span class="built_in">type</span>&gt;                <span class="comment"># 列出網站相關資料</span></span><br><span class="line"> hexo version                    <span class="comment"># 列出 hexo 版本</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -375,6 +381,11 @@
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
         <span class="site-state-item-count">4</span>
@@ -406,7 +417,7 @@
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-book"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jerry Lai</span>
 </div>

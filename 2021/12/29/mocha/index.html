@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言">
+  <meta name="description" content="工作有遇到開發API的需求，在規格文件都開好的情況下，想要驗證自己寫的API有沒有問題？是否都有依照規格文件的設定開發完成？ 這概念就是BDD(Behavior-Driven Development)行為驅動開發。 剛好有這個機會，所以來記錄一下使用Mocha的過程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mocha - 單元測試框架">
 <meta property="og:url" content="http://example.com/2021/12/29/mocha/index.html">
 <meta property="og:site_name" content="Jerry的小筆記">
-<meta property="og:description" content="前言">
+<meta property="og:description" content="工作有遇到開發API的需求，在規格文件都開好的情況下，想要驗證自己寫的API有沒有問題？是否都有依照規格文件的設定開發完成？ 這概念就是BDD(Behavior-Driven Development)行為驅動開發。 剛好有這個機會，所以來記錄一下使用Mocha的過程">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-12-29T07:07:57.000Z">
-<meta property="article:modified_time" content="2021-12-29T07:59:47.034Z">
+<meta property="article:modified_time" content="2021-12-29T09:53:03.917Z">
 <meta property="article:author" content="Jerry Lai">
 <meta property="article:tag" content="test-framework">
 <meta property="article:tag" content="mocha">
@@ -204,9 +204,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2021-12-29 15:07:57 / 修改時間：15:59:47" itemprop="dateCreated datePublished" datetime="2021-12-29T15:07:57+08:00">2021-12-29</time>
+              <time title="創建時間：2021-12-29 15:07:57" itemprop="dateCreated datePublished" datetime="2021-12-29T15:07:57+08:00">2021-12-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
             </span>
 
           
@@ -220,9 +228,73 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span>
+        <p>工作有遇到開發API的需求，在規格文件都開好的情況下，想要驗證自己寫的API有沒有問題？<br>是否都有依照規格文件的設定開發完成？ 這概念就是BDD(Behavior-Driven Development)行為驅動開發。</p>
+<p>剛好有這個機會，所以來記錄一下使用Mocha的過程</p>
+<span id="more"></span>
 
-<h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3>
+<h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><p><a target="_blank" rel="noopener" href="https://dyclassroom.com/mocha/mocha-introduction">Mocha</a> 是一個 JavaScript 測試框架，是相當熱門的單元測試框架，<br>目的就是用來管理測試的程式碼。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>透過terminal安裝mocha和斷言庫，Javascript提供了許多斷言庫，<br>用來幫助我們判斷單元測試中是否結果符合我們預期，這次我們選擇使用chai斷言庫。</p>
+<blockquote>
+<h6 id="註-斷言-assertion-，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）"><a href="#註-斷言-assertion-，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）" class="headerlink" title="註: 斷言(assertion)，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）"></a>註: 斷言(assertion)，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）</h6></blockquote>
+</br>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install mocha chai</span><br></pre></td></tr></table></figure>
+
+<p>安裝後，我們多安裝<a target="_blank" rel="noopener" href="https://github.com/adamgruber/mochawesome">mochawesome</a>，之後可以產生美觀的報表</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev mochawesome</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h3><p>在專案根目錄創建test資料夾</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>建立index.js並引入mocha套件，這裡多加了一些邏輯，主要用於建立多個測試檔案，以便以後可以擴充</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> Mocha = <span class="built_in">require</span>(<span class="string">&#x27;mocha&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//此段告訴mocha要使用mochawesome產生測試報告</span></span><br><span class="line"><span class="keyword">const</span> mocha = <span class="keyword">new</span> Mocha(&#123;</span><br><span class="line">    <span class="attr">reporter</span>: <span class="string">&#x27;mochawesome&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span>() =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> tests = [<span class="string">&#x27;./project1/test.js&#x27;</span>]; <span class="comment">// 放專案測試檔案所在路徑</span></span><br><span class="line">    <span class="keyword">const</span> directoryPath = __dirname;</span><br><span class="line">    <span class="keyword">const</span> testPaths = tests.map(<span class="function"><span class="params">t</span> =&gt;</span> path.join(directoryPath, t));</span><br><span class="line">    testPaths.forEach(<span class="function"><span class="params">path</span> =&gt;</span> mocha.addFile(path));</span><br><span class="line">    mocha.run(); <span class="comment">//每個都會執行</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>在專案內的test.js檔案中(./project1/test.js)，引入chai和其內的expect斷言方式，並加入mocha的語法邏輯，<br>最後在test資料夾目錄下輸入指令node ./index.js，測試程式就會運作囉。</p>
+<p>語法範例如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chai = <span class="built_in">require</span>(<span class="string">&#x27;chai&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; expect &#125; = chai;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&quot;ExpectTest&quot;</span>, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    it(<span class="string">&#x27;5 + 5 is expected to be 10&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> variable1 = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">const</span> variable2 = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">const</span> sum = variable1 + variable2;</span><br><span class="line">        expect(sum).to.equal(<span class="number">10</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="語法介紹"><a href="#語法介紹" class="headerlink" title="語法介紹"></a>語法介紹</h3><ul>
+<li><p>Mocha</p>
+<ul>
+<li><p>describe(): 用於標明測試的功能</p>
+</li>
+<li><p>it(): 撰寫測試案例</p>
+</li>
+<li><p>before(): 在整個測試開始前執行的函式</p>
+</li>
+<li><p>after(): 在整個測試結束後執行的函式</p>
+</li>
+<li><p>beforeEach()：在每個 Test Case 開始前執行的函式。</p>
+</li>
+<li><p>afterEach()：在每個 Test Case 結束後執行的函式。</p>
+</li>
+<li><p>範例: </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;hooks&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 測試區塊</span></span><br><span class="line">    before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在所有測試開始前會執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在所有測試結束後會執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在每個 Test Case 開始前執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在每個 Test Case 結束後執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 撰寫個別 Test Case</span></span><br><span class="line">    it(<span class="string">&#x27;should ...&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 執行 Test Case</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Chai.js </p>
+<ul>
+<li>列出比較常用的，其餘請參考<a target="_blank" rel="noopener" href="https://www.chaijs.com/">Chai.js</a>官方網站文檔</li>
+<li>.to</li>
+<li>.be</li>
+<li>.been</li>
+<li>.is</li>
+<li>.that</li>
+<li>.which</li>
+<li>.and</li>
+<li>.has</li>
+<li>.have</li>
+<li>.with</li>
+<li>.at</li>
+<li>.of</li>
+<li>.same</li>
+<li>.not</li>
+<li>.any</li>
+<li>.all</li>
+<li>.a(type) / .an(type)</li>
+</ul>
+</li>
+</ul>
+
     </div>
 
     
@@ -304,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFMocha"><span class="nav-number">2.</span> <span class="nav-text">什麼是Mocha</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">3.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">3.1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B5%90%E8%AA%9E"><span class="nav-number">3.3.</span> <span class="nav-text">結語</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFMocha"><span class="nav-number">1.</span> <span class="nav-text">什麼是Mocha</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">2.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%9D"><span class="nav-number">2.1.</span> <span class="nav-text">安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A8%BB-%E6%96%B7%E8%A8%80-assertion-%EF%BC%8C%E6%98%AF%E4%B8%80%E7%A8%AE%E6%94%BE%E5%9C%A8%E7%A8%8B%E5%BC%8F%E4%B8%AD%E7%9A%84%E4%B8%80%E9%9A%8E%E9%82%8F%E8%BC%AF%EF%BC%88%E5%A6%82%E4%B8%80%E5%80%8B%E7%B5%90%E6%9E%9C%E7%82%BA%E7%9C%9F%E6%88%96%E6%98%AF%E5%81%87%E7%9A%84%E9%82%8F%E8%BC%AF%E5%88%A4%E6%96%B7%E5%BC%8F%EF%BC%89"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">註: 斷言(assertion)，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%AA%AA%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">使用說明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AA%9E%E6%B3%95%E4%BB%8B%E7%B4%B9"><span class="nav-number">2.3.</span> <span class="nav-text">語法介紹</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,6 +392,11 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
@@ -352,7 +429,7 @@
   &copy; 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-book"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jerry Lai</span>
 </div>

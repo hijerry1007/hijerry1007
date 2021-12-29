@@ -12,19 +12,19 @@
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝Hexo-需先安裝Node-js"><a href="#安裝Hexo-需先安裝Node-js" class="headerlink" title="安裝Hexo (需先安裝Node.js)"></a>安裝Hexo (需先安裝Node.js)</h3><p>輸入以下指令，完成後輸入 <code>hexo v</code> 可以查看是否安裝完成</p>
 </br>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <h6 id="註-Mac-使用者-在編譯時可能會碰到問題，請至-App-Store安裝Xcode，安裝完成後，開啟並前往Preferences-gt-Download-gt-Command-Line-Tools-gt-Install-安裝命令列工具。"><a href="#註-Mac-使用者-在編譯時可能會碰到問題，請至-App-Store安裝Xcode，安裝完成後，開啟並前往Preferences-gt-Download-gt-Command-Line-Tools-gt-Install-安裝命令列工具。" class="headerlink" title="註: Mac 使用者 在編譯時可能會碰到問題，請至 App Store安裝Xcode，安裝完成後，開啟並前往Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安裝命令列工具。"></a>註: Mac 使用者 在編譯時可能會碰到問題，請至 App Store安裝Xcode，安裝完成後，開啟並前往Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安裝命令列工具。</h6></blockquote>
 </br>
 
 <h3 id="初始專案"><a href="#初始專案" class="headerlink" title="初始專案"></a>初始專案</h3><p>輸入指令 <code>hexo init 你的資料夾名稱</code>，即可建置存放部落格的目錄，舉例來說你可以輸入<br></br></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo init myBlog</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo init myBlog</span><br></pre></td></tr></table></figure>
 </br>
 
 <p>接著進入你創建的資料夾目錄底下，並輸入 <code>npm install</code> 安裝Hexo所需的套件，安裝完成後，輸入指令<code>hexo s</code>，<br>接著在瀏覽器輸入<code>http://localhost:4000</code> 有出現畫面就成功啦！</p>
 <h3 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h3><p>初始化Hexo後，資料夾的目錄結構如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml   # 最主要的設定檔</span><br><span class="line">├── package.json  #  相依套件列表</span><br><span class="line">├── scaffolds     # 用來建立新的 post</span><br><span class="line">├── public        # 處理編譯過 md 檔案會放到這裡</span><br><span class="line">├── source        # 部落格的內容，除了 _posts 外，其他以 _ 開頭的檔案都會被忽略</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes        # 網頁主題</span><br><span class="line">    └── 主題資料夾</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml   # 最主要的設定檔</span><br><span class="line">├── package.json  # 相依套件列表</span><br><span class="line">├── scaffolds     # 用來建立新的 post</span><br><span class="line">├── public        # 處理編譯過 md 檔案會放到這裡</span><br><span class="line">├── source        # 部落格的內容，除了 _posts 外，其他以 _ 開頭的檔案都會被忽略</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes        # 網頁主題</span><br><span class="line">    └── 主題資料夾</span><br></pre></td></tr></table></figure>
 
 
 <h3 id="主題設定"><a href="#主題設定" class="headerlink" title="主題設定"></a>主題設定</h3><p>大概熟悉目錄結構以後，我們來介紹如何變更主題，推薦網路很熱門的NexT主題</p>
@@ -33,29 +33,36 @@
 <h3 id="文章佈局"><a href="#文章佈局" class="headerlink" title="文章佈局"></a>文章佈局</h3><ul>
 <li><p>預設佈局 layout</p>
 <ul>
-<li>post : 文章</li>
-<li>page : 頁面</li>
-<li>draft : 草稿<br>鷹架 Scaffold : 可依照文章需要的格式去新增文章，</li>
+<li><p>鷹架 Scaffold : 可依照文章需要的格式去新增文章，</p>
+</li>
+<li><p>post : 文章</p>
+</li>
+<li><p>page : 頁面</p>
+</li>
+<li><p>draft : 草稿</p>
+</li>
 </ul>
 </li>
 <li><p>新增草稿</p>
 <ul>
-<li>輸入指令建立新草稿在 source / _drafts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new draft 文章名稱</span><br></pre></td></tr></table></figure></li>
+<li>輸入指令建立新草稿在 source / _drafts / 資料夾內  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new draft 文章名稱</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>草稿轉文章</p>
 <ul>
-<li>輸入執行 layout 是要移動到的佈局、title 是要移動的檔名  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
+<li>輸入執行 layout 是要移動到的佈局、title 是要移動的檔名  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p>新增文章</p>
 <ul>
-<li>輸入指令後會建立在 source / _posts / 資料夾內  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo new 文章名稱</span><br></pre></td></tr></table></figure></li>
+<li>輸入指令後會建立在 source / _posts / 資料夾內  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new 文章名稱</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
-<h3 id="參考指令"><a href="#參考指令" class="headerlink" title="參考指令"></a>參考指令</h3><p>常用指令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># $ hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span><br><span class="line"># $ hexo publish &lt;title&gt;</span><br><span class="line">$ hexo new draft hello_world</span><br><span class="line"></span><br><span class="line">$ hexo generate                   # 產生靜態檔案</span><br><span class="line">$ hexo generate -d                # 產生靜態檔案，並部署網站</span><br><span class="line">$ hexo server                     # 啟動伺服器</span><br><span class="line">$ hexo deploy                     # 部署網站</span><br><span class="line">$ hexo deploy -g                  # 部署網站前先產生靜態檔案</span><br><span class="line">$ hexo clean                      # 清除快取檔案</span><br><span class="line">$ hexo list &lt;type&gt;                # 列出網站相關資料</span><br><span class="line">$ hexo version                    # 列出 hexo 版本</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="參考指令"><a href="#參考指令" class="headerlink" title="參考指令"></a>參考指令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#  hexo new &lt;scaffold_layout&gt; &lt;title&gt;       # 建立新文章</span></span><br><span class="line"><span class="comment">#  hexo publish &lt;title&gt;</span></span><br><span class="line"> hexo new draft hello_world</span><br><span class="line"></span><br><span class="line"> hexo generate                   <span class="comment"># 產生靜態檔案</span></span><br><span class="line"> hexo generate -d                <span class="comment"># 產生靜態檔案，並部署網站</span></span><br><span class="line"> hexo server                     <span class="comment"># 啟動伺服器</span></span><br><span class="line"> hexo deploy                     <span class="comment"># 部署網站</span></span><br><span class="line"> hexo deploy -g                  <span class="comment"># 部署網站前先產生靜態檔案</span></span><br><span class="line"> hexo clean                      <span class="comment"># 清除快取檔案</span></span><br><span class="line"> hexo list &lt;<span class="built_in">type</span>&gt;                <span class="comment"># 列出網站相關資料</span></span><br><span class="line"> hexo version                    <span class="comment"># 列出 hexo 版本</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>筆記</category>
+      </categories>
       <tags>
         <tag>Hexo</tag>
       </tags>
@@ -63,9 +70,76 @@
   <entry>
     <title>Mocha - 單元測試框架</title>
     <url>/2021/12/29/mocha/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><span id="more"></span>
+    <content><![CDATA[<p>工作有遇到開發API的需求，在規格文件都開好的情況下，想要驗證自己寫的API有沒有問題？<br>是否都有依照規格文件的設定開發完成？ 這概念就是BDD(Behavior-Driven Development)行為驅動開發。</p>
+<p>剛好有這個機會，所以來記錄一下使用Mocha的過程</p>
+<span id="more"></span>
 
-<h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h3 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h3>]]></content>
+<h2 id="什麼是Mocha"><a href="#什麼是Mocha" class="headerlink" title="什麼是Mocha"></a>什麼是Mocha</h2><p><a href="https://dyclassroom.com/mocha/mocha-introduction">Mocha</a> 是一個 JavaScript 測試框架，是相當熱門的單元測試框架，<br>目的就是用來管理測試的程式碼。</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>透過terminal安裝mocha和斷言庫，Javascript提供了許多斷言庫，<br>用來幫助我們判斷單元測試中是否結果符合我們預期，這次我們選擇使用chai斷言庫。</p>
+<blockquote>
+<h6 id="註-斷言-assertion-，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）"><a href="#註-斷言-assertion-，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）" class="headerlink" title="註: 斷言(assertion)，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）"></a>註: 斷言(assertion)，是一種放在程式中的一階邏輯（如一個結果為真或是假的邏輯判斷式）</h6></blockquote>
+</br>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install mocha chai</span><br></pre></td></tr></table></figure>
+
+<p>安裝後，我們多安裝<a href="https://github.com/adamgruber/mochawesome">mochawesome</a>，之後可以產生美觀的報表</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install --save-dev mochawesome</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h3><p>在專案根目錄創建test資料夾</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p>建立index.js並引入mocha套件，這裡多加了一些邏輯，主要用於建立多個測試檔案，以便以後可以擴充</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> Mocha = <span class="built_in">require</span>(<span class="string">&#x27;mocha&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//此段告訴mocha要使用mochawesome產生測試報告</span></span><br><span class="line"><span class="keyword">const</span> mocha = <span class="keyword">new</span> Mocha(&#123;</span><br><span class="line">    <span class="attr">reporter</span>: <span class="string">&#x27;mochawesome&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span>() =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> tests = [<span class="string">&#x27;./project1/test.js&#x27;</span>]; <span class="comment">// 放專案測試檔案所在路徑</span></span><br><span class="line">    <span class="keyword">const</span> directoryPath = __dirname;</span><br><span class="line">    <span class="keyword">const</span> testPaths = tests.map(<span class="function"><span class="params">t</span> =&gt;</span> path.join(directoryPath, t));</span><br><span class="line">    testPaths.forEach(<span class="function"><span class="params">path</span> =&gt;</span> mocha.addFile(path));</span><br><span class="line">    mocha.run(); <span class="comment">//每個都會執行</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>在專案內的test.js檔案中(./project1/test.js)，引入chai和其內的expect斷言方式，並加入mocha的語法邏輯，<br>最後在test資料夾目錄下輸入指令node ./index.js，測試程式就會運作囉。</p>
+<p>語法範例如下:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> chai = <span class="built_in">require</span>(<span class="string">&#x27;chai&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; expect &#125; = chai;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&quot;ExpectTest&quot;</span>, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    it(<span class="string">&#x27;5 + 5 is expected to be 10&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">const</span> variable1 = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">const</span> variable2 = <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">const</span> sum = variable1 + variable2;</span><br><span class="line">        expect(sum).to.equal(<span class="number">10</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="語法介紹"><a href="#語法介紹" class="headerlink" title="語法介紹"></a>語法介紹</h3><ul>
+<li><p>Mocha</p>
+<ul>
+<li><p>describe(): 用於標明測試的功能</p>
+</li>
+<li><p>it(): 撰寫測試案例</p>
+</li>
+<li><p>before(): 在整個測試開始前執行的函式</p>
+</li>
+<li><p>after(): 在整個測試結束後執行的函式</p>
+</li>
+<li><p>beforeEach()：在每個 Test Case 開始前執行的函式。</p>
+</li>
+<li><p>afterEach()：在每個 Test Case 結束後執行的函式。</p>
+</li>
+<li><p>範例: </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">describe(<span class="string">&#x27;hooks&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 測試區塊</span></span><br><span class="line">    before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在所有測試開始前會執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在所有測試結束後會執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在每個 Test Case 開始前執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 在每個 Test Case 結束後執行的程式碼區塊</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 撰寫個別 Test Case</span></span><br><span class="line">    it(<span class="string">&#x27;should ...&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 執行 Test Case</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>Chai.js </p>
+<ul>
+<li>列出比較常用的，其餘請參考<a href="https://www.chaijs.com/">Chai.js</a>官方網站文檔</li>
+<li>.to</li>
+<li>.be</li>
+<li>.been</li>
+<li>.is</li>
+<li>.that</li>
+<li>.which</li>
+<li>.and</li>
+<li>.has</li>
+<li>.have</li>
+<li>.with</li>
+<li>.at</li>
+<li>.of</li>
+<li>.same</li>
+<li>.not</li>
+<li>.any</li>
+<li>.all</li>
+<li>.a(type) / .an(type)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>筆記</category>
+      </categories>
       <tags>
         <tag>test-framework</tag>
         <tag>mocha</tag>
