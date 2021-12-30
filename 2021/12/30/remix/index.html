@@ -20,21 +20,25 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix，順便筆記一下">
+  <meta name="description" content="最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="blockchain">
-<meta property="og:url" content="http://example.com/2021/12/30/blockchain/index.html">
+<meta property="og:title" content="Remix - Ethereum IDE">
+<meta property="og:url" content="http://example.com/2021/12/30/remix/index.html">
 <meta property="og:site_name" content="Jerry的小筆記">
-<meta property="og:description" content="最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix，順便筆記一下">
+<meta property="og:description" content="最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://example.com/2021/12/30/remix/remix_1.png">
+<meta property="og:image" content="http://example.com/2021/12/30/remix/remix_2.png">
+<meta property="og:image" content="http://example.com/2021/12/30/remix/remix_3.png">
 <meta property="article:published_time" content="2021-12-30T08:47:29.000Z">
-<meta property="article:modified_time" content="2021-12-30T08:50:28.057Z">
+<meta property="article:modified_time" content="2021-12-30T09:26:35.877Z">
 <meta property="article:author" content="Jerry Lai">
 <meta property="article:tag" content="blockchain">
 <meta property="article:tag" content="tutorial">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/12/30/remix/remix_1.png">
 
-<link rel="canonical" href="http://example.com/2021/12/30/blockchain/">
+<link rel="canonical" href="http://example.com/2021/12/30/remix/">
 
 
 <script id="page-configurations">
@@ -47,7 +51,7 @@
   };
 </script>
 
-  <title>blockchain | Jerry的小筆記</title>
+  <title>Remix - Ethereum IDE | Jerry的小筆記</title>
   
 
 
@@ -181,7 +185,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/30/blockchain/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/30/remix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,7 +198,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          blockchain
+          Remix - Ethereum IDE
         </h1>
 
         <div class="post-meta">
@@ -227,7 +231,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix，順便筆記一下</p>
+        <p>最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix</p>
+<span id="more"></span>
+
+<h2 id="什麼是Remix-Ethereum-IDE"><a href="#什麼是Remix-Ethereum-IDE" class="headerlink" title="什麼是Remix - Ethereum IDE"></a>什麼是Remix - Ethereum IDE</h2><p><a target="_blank" rel="noopener" href="https://remix.ethereum.org/">Remix - Ethereum IDE</a><br>顧名思義，它是個開發以太坊的智能合約的線上IDE，用瀏覽器就可以開啟，可以自動編譯並提示智能合約<br>的錯誤，也可以模擬在本地部屬上鏈的情況，是對於初學solidity的人很方便使用的工具。</p>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>點擊畫面 New File 新增檔案，名稱可以自己訂，但副檔名改為.sol，因為我們要做的是solidity的合約<br><img src="remix_1.png" alt="img"></p>
+<p>以下合約範例是參考<a target="_blank" rel="noopener" href="https://ethereum.org/en/developers/">Ethereum 官網</a>最小可行的代幣合約，<br>這合約做的事情為</p>
+<ol>
+<li>創造代幣: 給予call 合約方法initSupply的人它所請求的代幣數量至它的以太帳號</li>
+<li>轉移代幣: 轉移指定數量的代幣到指定的以太帳號<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// SPDX-License-Identifier: MIT</span></span><br><span class="line">pragma solidity ^<span class="number">0.8</span><span class="number">.7</span>;</span><br><span class="line"></span><br><span class="line">contract myToken &#123;</span><br><span class="line">    mapping(<span class="function"><span class="params">address</span> =&gt;</span> uint256) balanceOf;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initSupply</span>(<span class="params">uint256 _initSupply</span>) <span class="title">public</span></span>&#123;</span><br><span class="line">        balanceOf[msg.sender] = _initSupply;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">address _to, uint256 _amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="built_in">require</span>(balanceOf[msg.sender] &gt; _amount);</span><br><span class="line">        <span class="built_in">require</span>(balanceOf[_to] + _amount &gt;= balanceOf[_to]);</span><br><span class="line">        balanceOf[msg.sender] -= _amount;</span><br><span class="line">        balanceOf[_to] += _amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<h6 id="註-可能會碰到SPDX許可證問題，所以需要在代碼最上方加上-SPDX-License-Identifier-MIT，可以參考-https-forum-openzeppelin-com-t-solidity-0-6-8-introduces-spdx-license-identifiers-2859"><a href="#註-可能會碰到SPDX許可證問題，所以需要在代碼最上方加上-SPDX-License-Identifier-MIT，可以參考-https-forum-openzeppelin-com-t-solidity-0-6-8-introduces-spdx-license-identifiers-2859" class="headerlink" title="註: 可能會碰到SPDX許可證問題，所以需要在代碼最上方加上 // SPDX-License-Identifier: MIT，可以參考(https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859)"></a>註: 可能會碰到SPDX許可證問題，所以需要在代碼最上方加上 // SPDX-License-Identifier: MIT，可以參考(<a target="_blank" rel="noopener" href="https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859">https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859</a>)</h6></blockquote>
+<p>點擊左方Delpoy按鈕<br><img src="remix_2.png" alt="img"></p>
+<p>將Environment設定成Javascript VM，這代表之後的部屬都會在本地的記憶體執行。<br>接著選擇對應的sol檔案後按下Deploy即可在下方看到你的方法成功部屬了！<br><img src="remix_3.png" alt="img"></p>
 
     </div>
 
@@ -309,6 +326,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFRemix-Ethereum-IDE"><span class="nav-number">1.</span> <span class="nav-text">什麼是Remix - Ethereum IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%8B%E5%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">開始</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A8%BB-%E5%8F%AF%E8%83%BD%E6%9C%83%E7%A2%B0%E5%88%B0SPDX%E8%A8%B1%E5%8F%AF%E8%AD%89%E5%95%8F%E9%A1%8C%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81%E5%9C%A8%E4%BB%A3%E7%A2%BC%E6%9C%80%E4%B8%8A%E6%96%B9%E5%8A%A0%E4%B8%8A-SPDX-License-Identifier-MIT%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%83%E8%80%83-https-forum-openzeppelin-com-t-solidity-0-6-8-introduces-spdx-license-identifiers-2859"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">註: 可能會碰到SPDX許可證問題，所以需要在代碼最上方加上 &#x2F;&#x2F; SPDX-License-Identifier: MIT，可以參考(https:&#x2F;&#x2F;forum.openzeppelin.com&#x2F;t&#x2F;solidity-0-6-8-introduces-spdx-license-identifiers&#x2F;2859)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

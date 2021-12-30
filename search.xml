@@ -147,9 +147,22 @@
       </tags>
   </entry>
   <entry>
-    <title>blockchain</title>
-    <url>/2021/12/30/blockchain/</url>
-    <content><![CDATA[<p>最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix，順便筆記一下</p>
+    <title>Remix - Ethereum IDE</title>
+    <url>/2021/12/30/remix/</url>
+    <content><![CDATA[<p>最近在學習web3.js與solidity，也認識了很好用的solidity開發IDE - Remix</p>
+<span id="more"></span>
+
+<h2 id="什麼是Remix-Ethereum-IDE"><a href="#什麼是Remix-Ethereum-IDE" class="headerlink" title="什麼是Remix - Ethereum IDE"></a>什麼是Remix - Ethereum IDE</h2><p><a href="https://remix.ethereum.org/">Remix - Ethereum IDE</a><br>顧名思義，它是個開發以太坊的智能合約的線上IDE，用瀏覽器就可以開啟，可以自動編譯並提示智能合約<br>的錯誤，也可以模擬在本地部屬上鏈的情況，是對於初學solidity的人很方便使用的工具。</p>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><p>點擊畫面 New File 新增檔案，名稱可以自己訂，但副檔名改為.sol，因為我們要做的是solidity的合約<br><img src="remix_1.png" alt="img"></p>
+<p>以下合約範例是參考<a href="https://ethereum.org/en/developers/">Ethereum 官網</a>最小可行的代幣合約，<br>這合約做的事情為</p>
+<ol>
+<li>創造代幣: 給予call 合約方法initSupply的人它所請求的代幣數量至它的以太帳號</li>
+<li>轉移代幣: 轉移指定數量的代幣到指定的以太帳號<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// SPDX-License-Identifier: MIT</span></span><br><span class="line">pragma solidity ^<span class="number">0.8</span><span class="number">.7</span>;</span><br><span class="line"></span><br><span class="line">contract myToken &#123;</span><br><span class="line">    mapping(<span class="function"><span class="params">address</span> =&gt;</span> uint256) balanceOf;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">initSupply</span>(<span class="params">uint256 _initSupply</span>) <span class="title">public</span></span>&#123;</span><br><span class="line">        balanceOf[msg.sender] = _initSupply;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">transfer</span>(<span class="params">address _to, uint256 _amount</span>) <span class="title">public</span> </span>&#123;</span><br><span class="line">        <span class="built_in">require</span>(balanceOf[msg.sender] &gt; _amount);</span><br><span class="line">        <span class="built_in">require</span>(balanceOf[_to] + _amount &gt;= balanceOf[_to]);</span><br><span class="line">        balanceOf[msg.sender] -= _amount;</span><br><span class="line">        balanceOf[_to] += _amount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<h6 id="註-可能會碰到SPDX許可證問題，所以需要在代碼最上方加上-SPDX-License-Identifier-MIT，可以參考-https-forum-openzeppelin-com-t-solidity-0-6-8-introduces-spdx-license-identifiers-2859"><a href="#註-可能會碰到SPDX許可證問題，所以需要在代碼最上方加上-SPDX-License-Identifier-MIT，可以參考-https-forum-openzeppelin-com-t-solidity-0-6-8-introduces-spdx-license-identifiers-2859" class="headerlink" title="註: 可能會碰到SPDX許可證問題，所以需要在代碼最上方加上 // SPDX-License-Identifier: MIT，可以參考(https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859)"></a>註: 可能會碰到SPDX許可證問題，所以需要在代碼最上方加上 // SPDX-License-Identifier: MIT，可以參考(<a href="https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859">https://forum.openzeppelin.com/t/solidity-0-6-8-introduces-spdx-license-identifiers/2859</a>)</h6></blockquote>
+<p>點擊左方Delpoy按鈕<br><img src="remix_2.png" alt="img"></p>
+<p>將Environment設定成Javascript VM，這代表之後的部屬都會在本地的記憶體執行。<br>接著選擇對應的sol檔案後按下Deploy即可在下方看到你的方法成功部屬了！<br><img src="remix_3.png" alt="img"></p>
 ]]></content>
       <categories>
         <category>筆記</category>
